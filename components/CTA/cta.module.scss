@@ -1,0 +1,18 @@
+@import "@/assets/styles/global/_parts.scss";
+
+._ {
+  display: block;
+}
+
+.link {
+  border: 1px solid $white;
+  background-color: $black;
+  padding: 15px 25px;
+  transition: all 250ms ease-in-out;
+  color: $white;
+  text-transform: uppercase;
+  text-align: center;
+  @include _bodyFont;
+  @include _fontSize(14px, 18px);
+  position: relative;
+}

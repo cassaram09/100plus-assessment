@@ -1,0 +1,34 @@
+@import "../styles/admin_variables.scss";
+
+._ {
+  display: flex;
+  align-items: center;
+  height: 35px;
+  border-radius: 3px;
+
+  padding: 0px 15px;
+  &.primary {
+    background: $adminBlue;
+  }
+
+  &.danger {
+    background: $adminRed;
+  }
+
+  &.info {
+    background: $adminGrey;
+  }
+
+  path {
+    fill: $adminWhite;
+    margin-left: 10px;
+  }
+
+  span {
+    color: $adminWhite;
+    font-weight: bold;
+    &:not(:first-of-type) {
+      margin-left: 10px;
+    }
+  }
+}

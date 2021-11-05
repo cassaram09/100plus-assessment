@@ -1,0 +1,70 @@
+@import "./_variables.scss";
+@import "./_mixins.scss";
+
+* {
+  box-sizing: border-box;
+  margin: 0px;
+  padding: 0px;
+  @include _bodyFont;
+
+  &:focus {
+    outline: none !important;
+  }
+
+  &.focus-visible {
+    outline: 1px solid $defaultBlue !important;
+    outline: auto $defaultBlue !important;
+  }
+}
+
+div {
+  -ms-overflow-style: none;
+}
+// Base for REM sizing
+:root,
+html {
+  font-size: $rootFontSize;
+}
+
+main {
+  overflow: hidden;
+
+  @include _minWidthTablet {
+    overflow: auto;
+  }
+}
+
+html,
+body {
+  margin: 0;
+  padding: 0;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  outline: none;
+  position: relative;
+}
+
+.img {
+  display: block;
+  height: 100%;
+  width: 100%;
+  overflow: hidden;
+  position: relative;
+  background-repeat: no-repeat;
+  background-position: center center;
+
+  & > img {
+    opacity: 0;
+    position: absolute;
+    top: 0;
+    left: 0;
+    pointer-events: none;
+    visibility: hidden;
+    height: 100%;
+    width: 100%;
+  }
+}
+
+.main {
+  margin-top: 70px;
+}

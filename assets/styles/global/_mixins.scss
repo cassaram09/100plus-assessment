@@ -1,0 +1,193 @@
+@import "./_variables.scss";
+
+/* === BREAKPOINTS ==== */
+@mixin _minWidthXXSmall {
+  @media (min-width: $xxsmall) {
+    @content;
+  }
+}
+
+@mixin _minWidthXSmall {
+  @media (min-width: $xsmall) {
+    @content;
+  }
+}
+
+@mixin _minWidthSmall {
+  @media (min-width: $small) {
+    @content;
+  }
+}
+
+@mixin _minWidthMobile {
+  @media (min-width: $mobile) {
+    @content;
+  }
+}
+
+@mixin _minWidthTablet {
+  @media (min-width: $tablet) {
+    @content;
+  }
+}
+
+@mixin _minWidthMedium {
+  @media (min-width: $medium) {
+    @content;
+  }
+}
+
+@mixin _minWidthLarge {
+  @media (min-width: $large) {
+    @content;
+  }
+}
+
+@mixin _minWidthXLarge {
+  @media (min-width: $xlarge) {
+    @content;
+  }
+}
+
+@mixin _minWidthXXLarge {
+  @media (min-width: $xxlarge) {
+    @content;
+  }
+}
+
+/* === TYPOGRAPHY ==== */
+
+@mixin _bodyFont {
+  font-family: "Plus Jakarta Text", sans-serif;
+}
+
+@mixin _headingFont {
+  font-family: "Plus Jakarta Text", sans-serif;
+}
+
+@mixin _bodyFontSize {
+  font-size: $span-size-mobile;
+
+  @include _minWidthTablet {
+    font-size: $span-size;
+  }
+}
+
+@mixin _h1Size {
+  font-size: $h1-size-mobile;
+  line-height: calc(#{$h1-size-mobile} + 25px);
+  @include _minWidthTablet {
+    font-size: $h1-size;
+  }
+}
+
+@mixin _h2Size {
+  font-size: $h2-size-mobile;
+  line-height: calc(#{$h2-size-mobile} + 10px);
+
+  @include _minWidthTablet {
+    font-size: $h2-size;
+  }
+}
+
+@mixin _h3Size {
+  font-size: $h3-size-mobile;
+  line-height: calc(#{$h3-size-mobile} + 8px);
+
+  @include _minWidthTablet {
+    font-size: $h3-size;
+  }
+}
+
+@mixin _headingMarginLarge {
+  margin: 0px 0px 20px 0px;
+
+  @include _minWidthTablet {
+    margin: 0px 0px 25px 0px;
+  }
+}
+
+/* === FONT SIXING ==== */
+@function calculateRem($size) {
+  $remSize: $size / $rootFontSize;
+  @return #{$remSize}rem;
+}
+
+@mixin _fontSize($size, $lineHeight) {
+  font-size: calculateRem($size);
+  line-height: calculateRem($lineHeight);
+}
+
+/* === OTHER MIXINS ==== */
+@function _toVW($unit) {
+  @return ($unit / 1600) * 100vw;
+}
+
+@mixin _hoverAnimation {
+  transition: opacity 250ms ease-in-out;
+
+  &:hover {
+    opacity: 0.7;
+  }
+}
+
+@mixin _container($maxWidth: 1600px) {
+  padding-left: 20px;
+  padding-right: 20px;
+  max-width: $maxWidth;
+  margin-left: auto;
+  margin-right: auto;
+
+  @include _minWidthXSmall {
+    padding-left: 30px;
+    padding-right: 30px;
+  }
+
+  @include _minWidthMobile {
+    padding-left: 50px;
+    padding-right: 50px;
+  }
+
+  @include _minWidthLarge {
+    padding-left: 80px;
+    padding-right: 80px;
+  }
+
+  @content;
+}
+
+@mixin _verticalPadding($top: 0px, $bottom: 0px) {
+  padding-top: $top;
+  padding-bottom: $bottom;
+}
+
+@mixin _verticalMargin($top: 0px, $bottom: 0px) {
+  margin-top: $top;
+  margin-bottom: $bottom;
+}
+
+/* === CROSS BROWSER === */
+@mixin _IEOnly {
+  @media all and (-ms-high-contrast: none) {
+    @content;
+  }
+}
+
+@mixin _EdgeOnly {
+  @supports (-ms-ime-align: auto) {
+    @content;
+  }
+}
+
+/* === ACCESSIBILITY === */
+@mixin _accessible {
+  html[class*="accessible"] {
+    @content;
+  }
+}
+
+@mixin _notAccessible {
+  html:not([class*="accessible"]) {
+    @content;
+  }
+}

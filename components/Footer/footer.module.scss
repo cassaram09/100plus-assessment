@@ -1,0 +1,15 @@
+@import "@/assets/styles/global/_parts.scss";
+
+._ {
+  height: 100px;
+  text-align: center;
+  background: $lightGrey;
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  padding: 0px 20px;
+
+  p {
+    @include _fontSize(13px, 13px);
+  }
+}
