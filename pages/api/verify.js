@@ -2,7 +2,10 @@ import { verifyMBI } from "@/utils/helpers";
 
 export default function handler(req, res) {
   if (req.method === "POST") {
-    console.log(req.body);
+    if (!req.body.mbi) {
+      return res.status(400).send({ error: "parameter 'mbi' is required" });
+    }
+
     let valid = verifyMBI(req.body.mbi);
     res.send({ valid });
   } else {

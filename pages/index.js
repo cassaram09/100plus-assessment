@@ -1,6 +1,6 @@
 import styles from "@/assets/styles/pages/home.module.scss";
 import { _classes } from "@/utils/helpers";
-import API from "@/utils/API";
+import { GenerateForm, VerifyForm } from "@/components";
 
 const cl = _classes(styles);
 
@@ -9,9 +9,14 @@ Home.propTypes = {
 };
 
 export default function Home({ page }) {
-  page;
-
-  return <div className={cl("_")}>home.</div>;
+  return (
+    <div className={cl("_")}>
+      <div className={cl("container")}>
+        <GenerateForm />
+        <VerifyForm />
+      </div>
+    </div>
+  );
 }
 
 export const getStaticProps = async (ctx) => {

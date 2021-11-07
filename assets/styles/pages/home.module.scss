@@ -2,4 +2,11 @@
 
 ._ {
   display: block;
+  min-height: calc(100vh - 150px);
+}
+
+.container {
+  @include _verticalPadding(50px, 50px);
+
+  @include _container;
 }

@@ -7,7 +7,7 @@ const cl = _classes(styles);
 export default function Footer() {
   return (
     <footer className={cl("_")}>
-      <p>©{DateTime.now().toFormat("yyyy")}100Plus. All rights reserved.</p>
+      <p>©{DateTime.now().toFormat("yyyy")}. All rights reserved.</p>
     </footer>
   );
 }
